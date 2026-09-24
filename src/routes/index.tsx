@@ -224,7 +224,7 @@ function Index() {
             <p className="eyebrow">Projeto Conceito Cliqx</p>
             <h2 className="mt-6 max-w-[14ch] font-display text-4xl font-medium leading-tight md:text-6xl">E se você pudesse enxergar o potencial do seu negócio antes de decidir?</h2>
             <p className="mt-7 max-w-lg leading-7 text-muted-foreground">Selecionamos alguns negócios para receber uma visão inicial de como sua presença digital poderia ser transformada.</p>
-            <Button asChild size="lg" className="mt-9 h-12 rounded-full px-6"><a href="mailto:contato@cliqx.com.br?subject=Projeto%20Conceito%20Cliqx">Candidatar meu negócio <ArrowRight /></a></Button>
+            <Button asChild size="lg" className="mt-9 h-12 rounded-full px-6"><a href="#contato">Candidatar meu negócio <ArrowRight /></a></Button>
             <p className="mt-5 max-w-lg text-xs leading-5 text-muted-foreground">Projetos-conceito são selecionados pela Cliqx de acordo com disponibilidade e potencial do projeto.</p>
           </div>
           <div className="space-y-3 lg:col-span-5 lg:col-start-8">
@@ -256,12 +256,12 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 py-32 md:px-10 lg:px-8">
           <p className="eyebrow text-accent">Vamos mudar isso</p>
           <h2 className="mt-6 max-w-[15ch] font-display text-5xl font-medium leading-none md:text-7xl">Talvez seu negócio já seja incrível. <span className="text-primary">Só falta parecer.</span></h2>
-          <Button asChild size="lg" className="mt-10 h-12 rounded-full px-6"><a href="mailto:contato@cliqx.com.br?subject=Quero%20iniciar%20um%20projeto">Conte seu projeto <ArrowRight /></a></Button>
+          <Button asChild size="lg" className="mt-10 h-12 rounded-full px-6"><a href="#conceito">Conte seu projeto <ArrowRight /></a></Button>
         </div>
         <div className="mx-auto flex max-w-7xl flex-col gap-7 border-t border-border px-5 py-8 md:flex-row md:items-center md:justify-between md:px-10 lg:px-8">
           <img src={logoAsset.url} alt="Cliqx" className="h-14 w-20 rounded object-cover object-center" />
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Presença digital que valoriza negócios.</p>
-          <div className="flex gap-6 text-sm text-muted-foreground"><a className="nav-link" href="mailto:contato@cliqx.com.br">E-mail</a><a className="nav-link" href="#top">Voltar ao topo ↑</a></div>
+          <div className="flex gap-6 text-sm text-muted-foreground"><a className="nav-link" href="#conceito">Projeto Conceito</a><a className="nav-link" href="#top">Voltar ao topo ↑</a></div>
         </div>
       </footer>
     </main>
