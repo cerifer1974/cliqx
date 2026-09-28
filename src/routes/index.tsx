@@ -109,6 +109,25 @@ function Index() {
           aria-hidden="true"
         />
         <div className="hero-shade absolute inset-0" aria-hidden="true" />
+        <div className="hero-previews pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex" aria-hidden="false">
+          <div className="relative h-full w-[clamp(13rem,19vw,20rem)]">
+            {projects.map((project, index) => (
+              <a
+                key={project.name}
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+                className={`hero-preview-card pointer-events-auto hero-preview-${index + 1}`}
+              >
+                <img src={project.image} alt={`Prévia do projeto ${project.name}`} className="w-full object-cover object-top" />
+                <span className="flex items-center justify-between gap-2 px-3 py-2">
+                  <span className="font-display text-[0.7rem] font-medium leading-tight">{project.name}</span>
+                  <ArrowUpRight className="size-3.5 shrink-0 text-primary" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
         <div className="relative mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:px-8">
           <div className="max-w-[680px]">
             <h1 className="max-w-[17ch] font-display text-[clamp(2.35rem,4.2vw,4.25rem)] font-medium leading-[1.08]">
