@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A Cliqx cria experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.",
+          "A Cliqx projeta experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.",
       },
       { property: "og:title", content: "Cliqx — Transformação da Presença Digital" },
       {
@@ -95,19 +95,19 @@ function Index() {
 
       <section id="top" className="relative z-10 mx-auto grid min-h-[760px] max-w-7xl grid-cols-12 items-center gap-6 px-5 pb-24 pt-16 md:px-10 lg:px-8 lg:pt-20">
         <div className="col-span-12 lg:col-span-7">
-          <p className="eyebrow"><span className="pulse-dot" /> Agência de transformação digital</p>
+          <p className="eyebrow"><span className="pulse-dot" /> Estúdio de transformação digital</p>
           <h1 className="mt-7 max-w-[13ch] font-display text-5xl font-medium leading-[0.98] md:text-7xl lg:text-[5.5rem]">
             Seu negócio é bom.
             <span className="mt-2 block text-accent">Ele parece tão bom assim na internet?</span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
-            Criamos experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.
+            Projetamos experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.
           </p>
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
             <Button asChild size="lg" className="h-12 rounded-full px-6">
-              <a href="#conceito">Quero ver o potencial do meu negócio <ArrowRight /></a>
+              <a href="#conceito">Ver o potencial do meu negócio <ArrowRight /></a>
             </Button>
-            <a href="#projetos" className="nav-link inline-flex items-center gap-2 text-sm">Conheça nossos projetos <ArrowDownRight className="size-4 text-primary" /></a>
+            <a href="#projetos" className="nav-link inline-flex items-center gap-2 text-sm">Conhecer nossos projetos <ArrowDownRight className="size-4 text-primary" /></a>
           </div>
           <p className="mt-10 text-xs uppercase tracking-[0.22em] text-muted-foreground">Sites <span>•</span> Identidade <span>•</span> Google <span>•</span> Automação &amp; IA</p>
         </div>
@@ -124,7 +124,7 @@ function Index() {
               <img src={terraceAsset.url} alt="Site Terrace Chalés" className="col-span-4 h-full w-full rounded-md object-cover object-top" />
               <img src={persianasAsset.url} alt="Site Persianas Piracicaba" className="col-span-12 aspect-[2.4] w-full rounded-md object-cover object-top" />
             </div>
-            <p className="mt-5 text-sm text-muted-foreground">O que seu cliente vê antes de saber o quanto você é bom.</p>
+            <p className="mt-5 text-sm text-muted-foreground">A primeira impressão do seu cliente passa por aqui.</p>
           </div>
         </div>
       </section>
@@ -160,7 +160,7 @@ function Index() {
           <h2 className="font-display text-5xl font-medium leading-none md:text-7xl lg:col-span-7">Não começamos <span className="text-muted-foreground">pelo site.</span></h2>
           <div className="lg:col-span-4 lg:col-start-9 lg:pt-6">
             <p className="font-display text-3xl text-primary">Começamos pelo seu negócio.</p>
-            <p className="mt-5 leading-7 text-muted-foreground">Não adaptamos sua marca a um template. Criamos uma experiência digital a partir da personalidade, do público e do valor que ela já possui.</p>
+            <p className="mt-5 leading-7 text-muted-foreground">Não adaptamos a sua marca a um template. Projetamos a partir da personalidade, do público e do valor que ela já possui.</p>
           </div>
         </div>
       </section>
@@ -168,8 +168,8 @@ function Index() {
       <section id="projetos" className="relative z-10 border-y border-border bg-secondary/40 py-28">
         <div className="mx-auto max-w-7xl px-5 md:px-10 lg:px-8">
           <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div><p className="eyebrow">03 — Exposição</p><h2 className="mt-4 max-w-xl font-display text-4xl font-medium md:text-6xl">Projetos que roubam a cena.</h2></div>
-            <p className="max-w-sm text-sm leading-6 text-muted-foreground">Três identidades completamente diferentes. A prova de que a Cliqx não tem um estilo — encontra o estilo de cada negócio.</p>
+            <div><p className="eyebrow">03 — Exposição</p><h2 className="mt-4 max-w-xl font-display text-4xl font-medium md:text-6xl">Projetos que falam por si.</h2></div>
+            <p className="max-w-sm text-sm leading-6 text-muted-foreground">Três identidades, três linguagens. A prova de que a Cliqx não impõe um estilo — revela o de cada negócio.</p>
           </div>
           <div className="space-y-24">
             {projects.map((project, index) => (
@@ -183,7 +183,7 @@ function Index() {
                   <h3 className="mt-5 font-display text-3xl font-medium md:text-4xl">{project.name}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{project.place}</p>
                   <p className="mt-6 max-w-sm leading-7 text-muted-foreground">{project.description}</p>
-                  <a href={project.href} target="_blank" rel="noreferrer" className="nav-link mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em]">Explorar projeto <ArrowUpRight className="size-4" /></a>
+                  <a href={project.href} target="_blank" rel="noreferrer" className="nav-link mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.14em]">Ver projeto <ArrowUpRight className="size-4" /></a>
                 </div>
               </article>
             ))}
@@ -223,9 +223,9 @@ function Index() {
           <div className="lg:col-span-6">
             <p className="eyebrow">Projeto Conceito Cliqx</p>
             <h2 className="mt-6 max-w-[14ch] font-display text-4xl font-medium leading-tight md:text-6xl">E se você pudesse enxergar o potencial do seu negócio antes de decidir?</h2>
-            <p className="mt-7 max-w-lg leading-7 text-muted-foreground">Selecionamos alguns negócios para receber uma visão inicial de como sua presença digital poderia ser transformada.</p>
+            <p className="mt-7 max-w-lg leading-7 text-muted-foreground">Seletivo por natureza: alguns negócios recebem, de cada vez, uma visão inicial de como a sua presença digital poderia ser transformada.</p>
             <Button asChild size="lg" className="mt-9 h-12 rounded-full px-6"><a href="#contato">Candidatar meu negócio <ArrowRight /></a></Button>
-            <p className="mt-5 max-w-lg text-xs leading-5 text-muted-foreground">Projetos-conceito são selecionados pela Cliqx de acordo com disponibilidade e potencial do projeto.</p>
+            <p className="mt-5 max-w-lg text-xs leading-5 text-muted-foreground">Projetos-conceito são selecionados pela Cliqx conforme disponibilidade e potencial de cada negócio.</p>
           </div>
           <div className="space-y-3 lg:col-span-5 lg:col-start-8">
             {[
@@ -248,7 +248,7 @@ function Index() {
         </div>
         <div className="mt-16 grid items-center gap-8 border-t border-border pt-10 md:grid-cols-2">
           <p className="font-display text-2xl">Inteligência artificial acelera o processo.<br /><span className="text-muted-foreground">Nunca apaga a personalidade.</span></p>
-          <p className="text-sm leading-7 text-muted-foreground">Usamos ferramentas modernas para pesquisar, criar, desenvolver e automatizar com mais velocidade — sem transformar seu negócio em algo genérico.</p>
+          <p className="text-sm leading-7 text-muted-foreground">Ferramentas modernas aceleram pesquisa, criação, desenvolvimento e automação — sem diluir o que torna o seu negócio único.</p>
         </div>
       </section>
 
