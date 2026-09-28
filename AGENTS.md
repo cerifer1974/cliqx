@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Serve the uploaded Cliqx opening video and its poster through Lovable Assets pointers, not repository binaries, to keep media delivery lightweight.

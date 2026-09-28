@@ -13,6 +13,8 @@ import markAsset from "@/assets/cliqx-mark.jpeg.asset.json";
 import casaSpaAsset from "@/assets/casaspa-showcase.png.asset.json";
 import terraceAsset from "@/assets/terrace-showcase.png.asset.json";
 import persianasAsset from "@/assets/persianas-showcase.png.asset.json";
+import heroVideoAsset from "@/assets/cliqx-hero.webm.asset.json";
+import heroPosterAsset from "@/assets/cliqx-hero-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -93,38 +95,36 @@ function Index() {
         </Button>
       </header>
 
-      <section id="top" className="relative z-10 mx-auto grid min-h-[760px] max-w-7xl grid-cols-12 items-center gap-6 px-5 pb-24 pt-16 md:px-10 lg:px-8 lg:pt-20">
-        <div className="col-span-12 lg:col-span-7">
-          <p className="eyebrow"><span className="pulse-dot" /> Estúdio de transformação digital</p>
-          <h1 className="mt-7 max-w-[13ch] font-display text-5xl font-medium leading-[0.98] md:text-7xl lg:text-[5.5rem]">
-            Seu negócio é bom.
-            <span className="mt-2 block text-accent">Ele parece tão bom assim na internet?</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
-            Projetamos experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.
-          </p>
-          <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <Button asChild size="lg" className="h-12 rounded-full px-6">
-              <a href="#conceito">Ver o potencial do meu negócio <ArrowRight /></a>
-            </Button>
-            <a href="#projetos" className="nav-link inline-flex items-center gap-2 text-sm">Conhecer nossos projetos <ArrowDownRight className="size-4 text-primary" /></a>
-          </div>
-          <p className="mt-10 text-xs uppercase tracking-[0.22em] text-muted-foreground">Sites <span>•</span> Identidade <span>•</span> Google <span>•</span> Automação &amp; IA</p>
-        </div>
-
-        <div className="col-span-12 mt-12 lg:col-span-5 lg:mt-0 lg:pt-20">
-          <div className="hero-console glass-panel relative p-4 md:p-5">
-            <div className="absolute -top-4 right-5 rounded-full border border-accent/30 bg-secondary px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-accent">Percepção digital</div>
-            <div className="flex items-center justify-between border-b border-border pb-4">
-              <div className="flex gap-2"><span className="size-2 rounded-full bg-primary" /><span className="size-2 rounded-full bg-accent" /></div>
-              <span className="font-mono text-[10px] text-muted-foreground">CLIQX / 001</span>
+      <section id="top" className="hero-section relative z-10 flex items-center overflow-hidden border-b border-border">
+        <img src={heroPosterAsset.url} alt="" className="hero-video absolute inset-0 size-full object-cover" aria-hidden="true" />
+        <video
+          className="hero-video absolute inset-0 size-full object-cover"
+          src={heroVideoAsset.url}
+          poster={heroPosterAsset.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="hero-shade absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:px-8">
+          <div className="max-w-[680px]">
+            <h1 className="max-w-[17ch] font-display text-[clamp(2.35rem,4.2vw,4.25rem)] font-medium leading-[1.08]">
+              Seu negócio é bom.
+              <span className="mt-1 block text-accent">Ele parece tão bom assim na internet?</span>
+            </h1>
+            <p className="mt-5 max-w-lg text-sm leading-6 text-foreground/80 md:mt-7 md:text-base md:leading-7">
+              Projetamos experiências digitais que fazem grandes negócios serem percebidos como grandes negócios.
+            </p>
+            <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center md:mt-8">
+              <Button asChild size="lg" className="h-11 rounded-full px-5 sm:h-12 sm:px-6">
+                <a href="#conceito">Ver o potencial do meu negócio <ArrowRight /></a>
+              </Button>
+              <a href="#projetos" className="nav-link inline-flex items-center gap-2 text-sm text-foreground/85">Conhecer nossos projetos <ArrowDownRight className="size-4 text-primary" /></a>
             </div>
-            <div className="mt-4 grid grid-cols-12 gap-2">
-              <img src={casaSpaAsset.url} alt="Site Casa Spa" className="col-span-8 aspect-[1.35] w-full rounded-md object-cover object-top" />
-              <img src={terraceAsset.url} alt="Site Terrace Chalés" className="col-span-4 h-full w-full rounded-md object-cover object-top" />
-              <img src={persianasAsset.url} alt="Site Persianas Piracicaba" className="col-span-12 aspect-[2.4] w-full rounded-md object-cover object-top" />
-            </div>
-            <p className="mt-5 text-sm text-muted-foreground">A primeira impressão do seu cliente passa por aqui.</p>
+            <p className="mt-7 text-[10px] uppercase leading-5 tracking-[0.16em] text-foreground/65 md:mt-9 md:text-xs">Sites <span>•</span> Identidade <span>•</span> Google <span>•</span> Automação &amp; IA</p>
           </div>
         </div>
       </section>
