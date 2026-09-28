@@ -13,7 +13,7 @@ import markAsset from "@/assets/cliqx-mark.jpeg.asset.json";
 import casaSpaAsset from "@/assets/casaspa-showcase.png.asset.json";
 import terraceAsset from "@/assets/terrace-showcase.png.asset.json";
 import persianasAsset from "@/assets/persianas-showcase.png.asset.json";
-import heroVideoAsset from "@/assets/cliqx-hero.mp4.asset.json";
+import heroVideoAsset from "@/assets/cliqx-hero.webm.asset.json";
 import heroPosterAsset from "@/assets/cliqx-hero-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -100,6 +100,7 @@ function Index() {
         <video
           className="hero-video absolute inset-0 size-full object-cover"
           src={heroVideoAsset.url}
+          type="video/webm"
           poster={heroPosterAsset.url}
           autoPlay
           muted
