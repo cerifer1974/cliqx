@@ -100,7 +100,6 @@ function Index() {
         <video
           className="hero-video absolute inset-0 size-full object-cover"
           src={heroVideoAsset.url}
-          type="video/webm"
           poster={heroPosterAsset.url}
           autoPlay
           muted
