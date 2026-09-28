@@ -96,6 +96,7 @@ function Index() {
       </header>
 
       <section id="top" className="hero-section relative z-10 flex items-center overflow-hidden border-b border-border">
+        <img src={heroPosterAsset.url} alt="" className="hero-video absolute inset-0 size-full object-cover" aria-hidden="true" />
         <video
           className="hero-video absolute inset-0 size-full object-cover"
           src={heroVideoAsset.url}

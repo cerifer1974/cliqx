@@ -121,6 +121,5 @@ button, a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   .ambient, .scanline, .hero-console { animation: none; }
   .hero-video { display: none; }
-  .hero-section { background: var(--background) url("/__l5e/assets-v1/1f31f6b6-c6d9-421b-b78c-c9151b47ce5d/cliqx-hero-poster.jpg") center / cover no-repeat; }
   * { transition-duration: 0.01ms !important; }
 }
