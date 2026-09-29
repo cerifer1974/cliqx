@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Serve the uploaded Cliqx opening video and its poster through Lovable Assets pointers, not repository binaries, to keep media delivery lightweight.
+- Keep the solutions dial in a client-side component with local state; its editorial transitions and touch navigation do not require persistence.
