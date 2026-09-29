@@ -136,12 +136,52 @@ button, a { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 30px 60px color-mix(in oklab, var(--primary) 16%, transparent);
 }
 .project-image { position: relative; display: block; overflow: hidden; border: 1px solid var(--border); border-radius: 1rem; background: var(--secondary); box-shadow: 0 25px 90px color-mix(in oklab, var(--background) 80%, transparent); }
-.ecosystem { position: relative; min-height: 30rem; border: 1px solid var(--border); border-radius: 1rem; background: radial-gradient(circle at center, color-mix(in oklab, var(--primary) 9%, transparent), transparent 48%); }
-.ecosystem::before, .ecosystem::after { content: ""; position: absolute; inset: 15%; border: 1px solid var(--border); border-radius: 50%; }
-.ecosystem::after { inset: 30%; }
-.ecosystem-center { position: absolute; left: 50%; top: 50%; z-index: 2; display: flex; width: 10rem; height: 10rem; transform: translate(-50%, -50%); flex-direction: column; align-items: center; justify-content: center; gap: .75rem; border-radius: 50%; border: 1px solid color-mix(in oklab, var(--primary) 30%, transparent); background: color-mix(in oklab, var(--secondary) 80%, transparent); font-family: "Sora", sans-serif; text-align: center; }
-.orbit-label { position: absolute; z-index: 3; border: 1px solid var(--border); border-radius: 999px; background: var(--background); padding: .55rem .85rem; font-size: .72rem; color: var(--muted-foreground); }
-.orbit-1 { left: 8%; top: 16%; }.orbit-2 { right: 8%; top: 17%; }.orbit-3 { left: 4%; top: 48%; }.orbit-4 { right: 4%; top: 49%; }.orbit-5 { left: 12%; bottom: 15%; }.orbit-6 { right: 13%; bottom: 14%; }.orbit-7 { left: 42%; top: 5%; }.orbit-8 { left: 40%; bottom: 5%; }
+.solutions-section { background: linear-gradient(120deg, var(--background), color-mix(in oklab, var(--secondary) 70%, var(--background)) 64%, var(--background)); }
+.solutions-inner { min-height: 680px; padding-top: 64px; padding-bottom: 52px; }
+.solutions-heading { position: relative; z-index: 2; margin-left: 30%; }
+.solutions-dial { position: absolute; left: -430px; top: -25px; width: 780px; height: 780px; }
+.solutions-dial-ring { position: absolute; inset: 0; border: 1px solid color-mix(in oklab, var(--primary) 20%, var(--border)); border-radius: 50%; box-shadow: inset 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent), 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent); }
+.solutions-dial-ring::after { content: ""; position: absolute; inset: 64px; border: 1px solid color-mix(in oklab, var(--foreground) 5%, transparent); border-radius: 50%; }
+.solutions-dial-item { position: absolute; z-index: 3; width: 95px; height: 54px; padding: 0; justify-content: flex-start; gap: 13px; border-radius: 0; color: var(--muted-foreground); font-family: "Sora", sans-serif; font-size: 23px; font-weight: 400; transition: color .35s ease, transform .35s ease; }
+.solutions-dial-item:hover { background: transparent; color: var(--foreground); }
+.solutions-dial-item.is-active { color: var(--foreground); transform: translateX(8px); }
+.solutions-dial-item-1 { left: 76%; top: 18%; }.solutions-dial-item-2 { left: 89%; top: 36%; }.solutions-dial-item-3 { left: 91%; top: 57%; }.solutions-dial-item-4 { left: 80%; top: 76%; }
+.solutions-dial-dot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--muted-foreground); transition: background .35s ease, box-shadow .35s ease, transform .35s ease; }
+.solutions-dial-item.is-active .solutions-dial-dot { background: var(--primary); box-shadow: 0 0 0 5px color-mix(in oklab, var(--primary) 12%, transparent), 0 0 22px var(--primary); transform: scale(1.3); }
+.solutions-dial-index { display: none; position: absolute; top: 48%; right: 37%; font-family: "Sora", sans-serif; font-size: 58px; color: color-mix(in oklab, var(--primary) 10%, transparent); }
+.solutions-dial-index span { font-size: 16px; }
+.solutions-content { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 290px; align-items: center; gap: 28px; margin: 85px 0 0 30%; min-height: 350px; }
+.solutions-copy { align-self: center; animation: solutions-reveal .45s cubic-bezier(.2,.7,.2,1) both; }
+.solutions-kicker { display: flex; align-items: center; gap: 17px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+.solutions-flag { padding: 8px 11px; border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent); border-radius: 2px; color: var(--primary); background: color-mix(in oklab, var(--primary) 8%, transparent); }
+.solutions-title { margin-top: 19px; max-width: 12ch; font-size: clamp(42px, 4.6vw, 70px); line-height: 1.08; font-weight: 500; }
+.solutions-description { max-width: 490px; margin-top: 22px; color: var(--muted-foreground); font-size: 15px; line-height: 1.8; }
+.solutions-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.solutions-tags span { padding: 9px 13px; border: 1px solid var(--border); border-radius: 999px; background: color-mix(in oklab, var(--foreground) 3%, transparent); color: var(--foreground); font-size: 12px; white-space: nowrap; }
+.solutions-cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; padding-bottom: 7px; border-bottom: 1px solid var(--primary); color: var(--primary); font-size: 13px; transition: gap .25s ease; }
+.solutions-cta:hover { gap: 14px; }
+.solutions-visual { position: relative; display: grid; place-items: center; width: 290px; height: 290px; animation: solutions-reveal .55s ease both; }
+.solutions-visual-halo { position: absolute; inset: 10%; border: 1px solid color-mix(in oklab, var(--primary) 15%, transparent); border-radius: 50%; box-shadow: 0 0 0 29px color-mix(in oklab, var(--primary) 2%, transparent), 0 0 0 60px color-mix(in oklab, var(--primary) 1%, transparent); }
+.solutions-visual-object { position: relative; display: flex; width: 205px; height: 220px; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; border: 1px solid color-mix(in oklab, var(--primary) 40%, transparent); border-radius: 18px; background: linear-gradient(145deg, color-mix(in oklab, var(--primary) 18%, var(--secondary)), var(--background) 65%, color-mix(in oklab, var(--accent) 10%, var(--background))); box-shadow: 18px 24px 55px color-mix(in oklab, var(--background) 85%, transparent), inset 0 1px 0 color-mix(in oklab, var(--foreground) 20%, transparent); transform: perspective(650px) rotateY(-20deg) rotateX(8deg) rotate(-5deg); transition: transform .5s ease; }
+.solutions-visual:hover .solutions-visual-object { transform: perspective(650px) rotateY(-7deg) rotateX(4deg) rotate(-2deg); }
+.solutions-visual-sheen { position: absolute; inset: -50%; transform: rotate(32deg) translateX(-30%); background: linear-gradient(90deg, transparent 42%, color-mix(in oklab, var(--foreground) 8%, transparent) 50%, transparent 58%); }
+.solutions-visual-icon { width: 100px; height: 100px; color: var(--primary); filter: drop-shadow(0 0 24px color-mix(in oklab, var(--primary) 45%, transparent)); }
+.solutions-visual-mark { position: absolute; bottom: 18px; left: 20px; right: 20px; display: flex; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 10px; font-family: "Sora", sans-serif; font-size: 10px; color: var(--foreground); }
+.solutions-visual-mark span { color: var(--muted-foreground); }
+.solutions-visual-caption { position: absolute; bottom: -18px; font-size: 9px; letter-spacing: .18em; color: var(--muted-foreground); }
+.solutions-visual-identity .solutions-visual-object { border-radius: 50% 18px 50% 18px; }
+.solutions-visual-local .solutions-visual-object { transform: perspective(650px) rotateY(15deg) rotateX(8deg) rotate(5deg); }
+.solutions-visual-automation .solutions-visual-object { border-radius: 30px 8px 30px 8px; }
+.solutions-controls { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; margin: 38px 0 0 30%; padding-top: 23px; border-top: 1px solid var(--border); }
+.solutions-progress { color: var(--muted-foreground); font-family: "Sora", sans-serif; font-size: 13px; }.solutions-progress strong { color: var(--primary); font-weight: 500; }
+.solutions-arrow { width: 44px; height: 44px; border-radius: 50%; color: var(--foreground); background: color-mix(in oklab, var(--secondary) 75%, transparent); }.solutions-arrow:hover { color: var(--primary); border-color: var(--primary); background: var(--secondary); }
+@keyframes solutions-reveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1100px) and (min-width: 768px) {
+  .solutions-dial { left: -520px; }
+  .solutions-content { grid-template-columns: minmax(0, 1fr) 210px; }
+  .solutions-visual { width: 210px; height: 240px; }.solutions-visual-object { width: 160px; height: 185px; }
+  .solutions-title { font-size: 48px; }
+}
 .concept-step { display: grid; grid-template-columns: 3rem 1fr; align-items: center; gap: 1rem; border: 1px solid var(--border); border-radius: .75rem; background: color-mix(in oklab, var(--background) 55%, transparent); padding: 1.25rem; }
 .concept-step span { font-family: "Sora", sans-serif; color: var(--accent); }
 .concept-step p { margin: 0; font-size: .9rem; color: var(--foreground); }
@@ -158,8 +198,23 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-shade { background: linear-gradient(90deg, color-mix(in oklab, var(--background) 93%, transparent), color-mix(in oklab, var(--background) 70%, transparent)), linear-gradient(0deg, var(--background), transparent 65%); }
   .scanline-two { display: none; }
   .site-shell::before { background-size: 44px 44px; }
-  .ecosystem { min-height: 25rem; }
-  .orbit-label { padding: .45rem .65rem; font-size: .64rem; }
+  .solutions-inner { min-height: 0; padding-top: 56px; padding-bottom: 64px; }
+  .solutions-heading { margin-left: 0; }
+  .solutions-dial { left: -177px; top: 131px; width: 340px; height: 340px; }
+  .solutions-dial-ring::after { inset: 35px; }
+  .solutions-dial-item { width: 70px; height: 42px; gap: 9px; font-size: 17px; }
+  .solutions-dial-item-1 { left: 72%; top: 12%; }.solutions-dial-item-2 { left: 86%; top: 32%; }.solutions-dial-item-3 { left: 90%; top: 56%; }.solutions-dial-item-4 { left: 76%; top: 78%; }
+  .solutions-dial-index { top: 45%; right: 36%; font-size: 34px; }.solutions-dial-index span { font-size: 11px; }
+  .solutions-content { display: flex; flex-direction: column; align-items: stretch; gap: 22px; min-height: 0; margin: 305px 0 0; }
+  .solutions-copy { min-height: 315px; align-self: stretch; }
+  .solutions-title { max-width: none; font-size: clamp(39px, 10vw, 53px); }
+  .solutions-description { margin-top: 16px; font-size: 14px; line-height: 1.7; }
+  .solutions-tags { margin-top: 21px; }.solutions-tags span { font-size: 11px; padding: 8px 10px; }
+  .solutions-cta { margin-top: 25px; }
+  .solutions-visual { align-self: center; width: 200px; height: 190px; }
+  .solutions-visual-object { width: 128px; height: 145px; border-radius: 12px; }.solutions-visual-icon { width: 63px; height: 63px; }.solutions-visual-mark { left: 12px; right: 12px; bottom: 11px; font-size: 7px; }
+  .solutions-visual-caption { bottom: -12px; }
+  .solutions-controls { margin: 36px 0 0; }
   .process-cell { min-height: 14rem; }
 }
 
@@ -167,5 +222,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   .ambient, .scanline, .hero-console { animation: none; }
   .hero-video { display: none; }
+  .solutions-copy, .solutions-visual { animation: none; }
+  .solutions-dial-item, .solutions-dial-dot, .solutions-visual-object { transition: none; }
   * { transition-duration: 0.01ms !important; }
 }

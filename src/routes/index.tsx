@@ -5,10 +5,10 @@ import {
   ArrowRight,
   ArrowUpRight,
   Check,
-  Sparkles,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SolutionsShowcase } from "@/components/SolutionsShowcase";
 import logoAsset from "@/assets/cliqx-logo.jpeg.asset.json";
 import markAsset from "@/assets/cliqx-mark.jpeg.asset.json";
 import casaSpaAsset from "@/assets/casaspa-showcase.png.asset.json";
@@ -209,32 +209,7 @@ function Index() {
         </div>
       </section>
 
-      <section id="solucoes" className="relative z-10 mx-auto max-w-7xl px-5 py-32 md:px-10 lg:px-8">
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="eyebrow">04 — A visão completa</p>
-            <h2 className="mt-5 font-display text-5xl font-medium leading-tight">Um site é só o começo.</h2>
-            <p className="mt-6 max-w-md leading-7 text-muted-foreground">Seu cliente não enxerga canais separados. Ele enxerga sua empresa.</p>
-          </div>
-          <div className="ecosystem lg:col-span-7">
-            <div className="ecosystem-center"><Sparkles className="size-5 text-primary" /><span>Presença digital</span></div>
-            {["Website", "Google", "Identidade", "SEO", "Automação", "IA", "Atendimento", "Reputação"].map((item, index) => <span key={item} className={`orbit-label orbit-${index + 1}`}>{item}</span>)}
-          </div>
-        </div>
-        <div className="mt-24 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
-          {[
-            ["“Meu negócio praticamente não aparece no Google.”", "Presença local", "Google Empresas + SEO local + reputação."],
-            ["“Perco muito tempo respondendo sempre as mesmas coisas.”", "Automação & IA", "Atendimento + qualificação + respostas."],
-            ["“Meu Instagram é bom, mas não encontram nada profissional.”", "Presença digital", "Site + Google + identidade."],
-            ["“Minha imagem não transmite a qualidade do negócio.”", "Transformação digital", "Estratégia + identidade + site."],
-          ].map(([problem, solution, detail]) => (
-            <div key={solution} className="bg-background p-7 md:p-10">
-              <p className="font-display text-xl leading-relaxed text-muted-foreground">{problem}</p>
-              <div className="mt-8 flex items-start gap-4"><ArrowRight className="mt-1 size-5 text-primary" /><div><h3 className="font-display text-xl text-foreground">{solution}</h3><p className="mt-2 text-sm text-muted-foreground">{detail}</p></div></div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <SolutionsShowcase />
 
       <section id="conceito" className="relative z-10 border-y border-border bg-secondary/50">
         <div className="mx-auto grid max-w-7xl gap-16 px-5 py-32 md:px-10 lg:grid-cols-12 lg:px-8">
