@@ -109,21 +109,19 @@ function Index() {
           aria-hidden="true"
         />
         <div className="hero-shade absolute inset-0" aria-hidden="true" />
-        <div className="hero-previews pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex" aria-hidden="false">
-          <div className="relative h-full w-[clamp(13rem,19vw,20rem)]">
+        <div className="hero-previews pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex">
+          <div className="project-fan pointer-events-auto">
             {projects.map((project, index) => (
               <a
                 key={project.name}
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className={`hero-preview-card pointer-events-auto hero-preview-${index + 1}`}
+                data-text={project.name}
+                style={{ "--r": [-7, 0, 7][index] } as React.CSSProperties}
+                className="project-fan-card"
               >
-                <img src={project.image} alt={`Prévia do projeto ${project.name}`} className="w-full object-cover object-top" />
-                <span className="flex items-center justify-between gap-2 px-3 py-2">
-                  <span className="font-display text-[0.7rem] font-medium leading-tight">{project.name}</span>
-                  <ArrowUpRight className="size-3.5 shrink-0 text-primary" />
-                </span>
+                <img src={project.image} alt={`Prévia do projeto ${project.name}`} />
               </a>
             ))}
           </div>
