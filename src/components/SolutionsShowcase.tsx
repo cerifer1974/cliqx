@@ -41,7 +41,7 @@ const solutions = [
 export function SolutionsShowcase() {
   const [active, setActive] = useState(0);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
-  const solution = solutions[active];
+  const solution = solutions[active] ?? solutions[0];
   const Icon = solution.icon;
 
   function move(direction: number) {
@@ -61,8 +61,10 @@ export function SolutionsShowcase() {
 
   function onTouchEnd(event: TouchEvent<HTMLElement>) {
     if (!touchStart) return;
-    const deltaX = event.changedTouches[0].clientX - touchStart.x;
-    const deltaY = event.changedTouches[0].clientY - touchStart.y;
+    const touch = event.changedTouches[0];
+    if (!touch) return;
+    const deltaX = touch.clientX - touchStart.x;
+    const deltaY = touch.clientY - touchStart.y;
     if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
       move(deltaX < 0 ? 1 : -1);
     }
@@ -76,7 +78,10 @@ export function SolutionsShowcase() {
       aria-label="Soluções Cliqx"
       tabIndex={0}
       onKeyDown={onKeyDown}
-      onTouchStart={(event) => setTouchStart({ x: event.touches[0].clientX, y: event.touches[0].clientY })}
+      onTouchStart={(event) => {
+        const touch = event.touches[0];
+        if (touch) setTouchStart({ x: touch.clientX, y: touch.clientY });
+      }}
       onTouchEnd={onTouchEnd}
       onTouchCancel={() => setTouchStart(null)}
     >
