@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDownRight,
@@ -118,7 +119,7 @@ function Index() {
                 target="_blank"
                 rel="noreferrer"
                 data-text={project.name}
-                style={{ "--r": [-7, 0, 7][index] } as React.CSSProperties}
+                style={{ "--r": [-7, 0, 7][index] } as CSSProperties}
                 className="project-fan-card"
               >
                 <img src={project.image} alt={`Prévia do projeto ${project.name}`} />

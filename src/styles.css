@@ -165,7 +165,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .ambient, .scanline, .hero-console, .hero-preview-card { animation: none; }
+  .ambient, .scanline, .hero-console { animation: none; }
   .hero-video { display: none; }
   * { transition-duration: 0.01ms !important; }
 }
