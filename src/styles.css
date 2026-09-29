@@ -62,7 +62,7 @@ a { text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
 .site-shell { isolation: isolate; }
-.hero-section { min-height: clamp(34rem, 68svh, 42rem); }
+.hero-section { min-height: clamp(30rem, 60svh, 37rem); }
 .hero-video { object-position: center center; }
 .hero-shade { background: linear-gradient(90deg, var(--background) 4%, color-mix(in oklab, var(--background) 93%, transparent) 34%, color-mix(in oklab, var(--background) 53%, transparent) 67%, color-mix(in oklab, var(--background) 20%, transparent) 100%); }
 .site-shell::before {
@@ -153,7 +153,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 
 @media (max-width: 767px) {
-  .hero-section { min-height: min(35rem, 76svh); }
+  .hero-section { min-height: min(31rem, 68svh); }
   .hero-video { object-position: 60% center; }
   .hero-shade { background: linear-gradient(90deg, color-mix(in oklab, var(--background) 93%, transparent), color-mix(in oklab, var(--background) 70%, transparent)), linear-gradient(0deg, var(--background), transparent 65%); }
   .scanline-two { display: none; }
