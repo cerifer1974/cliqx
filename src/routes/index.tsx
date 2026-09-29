@@ -80,7 +80,7 @@ function Index() {
       <div className="scanline scanline-one" />
       <div className="scanline scanline-two" />
 
-      <header className="relative z-40 mx-auto flex max-w-[1440px] items-center justify-between px-5 py-5 md:px-10 lg:px-14">
+      <header className="relative z-40 mx-auto flex max-w-[1440px] items-center justify-between px-5 py-3 md:px-10 lg:px-14">
         <a href="#top" aria-label="Cliqx — início" className="flex items-center gap-3">
           <img src={markAsset.url} alt="" className="size-10 rounded-md object-cover" />
           <span className="font-display text-base font-semibold">Cliqx</span>
@@ -127,7 +127,7 @@ function Index() {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:px-8">
+        <div className="relative mx-auto w-full max-w-7xl px-5 py-8 md:px-10 md:py-12 lg:px-8">
           <div className="max-w-[680px]">
             <h1 className="max-w-[17ch] font-display text-[clamp(2.35rem,4.2vw,4.25rem)] font-medium leading-[1.08]">
               Seu negócio é bom.
