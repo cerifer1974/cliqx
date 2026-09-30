@@ -112,7 +112,7 @@ export function SolutionsShowcase() {
     <section
       ref={sectionRef}
       id="solucoes"
-      className="solutions-section relative z-10 overflow-hidden border-y border-border"
+      className="solutions-section relative z-10 overflow-clip border-y border-border"
       style={{ "--active-index": active } as CSSProperties}
       aria-label="Soluções Cliqx"
       tabIndex={0}
