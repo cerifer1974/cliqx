@@ -74,7 +74,7 @@ const process = [
 
 function Index() {
   return (
-    <main className="site-shell relative min-h-screen overflow-hidden bg-background text-foreground">
+    <main className="site-shell relative min-h-screen overflow-x-clip bg-background text-foreground">
       <div className="ambient ambient-cyan" />
       <div className="ambient ambient-violet" />
       <div className="scanline scanline-one" />

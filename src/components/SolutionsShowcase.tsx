@@ -1,4 +1,4 @@
-import { useState, type TouchEvent, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type TouchEvent, type KeyboardEvent } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Bot, Compass, Monitor, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -41,11 +41,49 @@ const solutions = [
 export function SolutionsShowcase() {
   const [active, setActive] = useState(0);
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const solution = solutions[active] ?? solutions[0];
   const Icon = solution.icon;
 
+  useEffect(() => {
+    let frame = 0;
+    const syncWithScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+        const distance = section.offsetHeight - window.innerHeight;
+        if (distance <= 0) return;
+        const progress = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / distance));
+        section.style.setProperty("--dial-progress", String(progress * (solutions.length - 1)));
+        setActive(Math.min(solutions.length - 1, Math.floor(progress * solutions.length)));
+      });
+    };
+    syncWithScroll();
+    window.addEventListener("scroll", syncWithScroll, { passive: true });
+    window.addEventListener("resize", syncWithScroll);
+    return () => {
+      window.removeEventListener("scroll", syncWithScroll);
+      window.removeEventListener("resize", syncWithScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  function goTo(index: number) {
+    const section = sectionRef.current;
+    if (!section) return;
+    const next = (index + solutions.length) % solutions.length;
+    setActive(next);
+    const distance = section.offsetHeight - window.innerHeight;
+    const top = window.scrollY + section.getBoundingClientRect().top;
+    window.scrollTo({
+      top: top + Math.max(0, distance) * (next + 0.12) / solutions.length,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+    });
+  }
+
   function move(direction: number) {
-    setActive((current) => (current + direction + solutions.length) % solutions.length);
+    goTo(active + direction);
   }
 
   function onKeyDown(event: KeyboardEvent<HTMLElement>) {
@@ -73,8 +111,9 @@ export function SolutionsShowcase() {
 
   return (
     <section
+      ref={sectionRef}
       id="solucoes"
-      className="solutions-section relative z-10 overflow-hidden border-y border-border"
+      className="solutions-section relative z-10 overflow-clip border-y border-border"
       aria-label="Soluções Cliqx"
       tabIndex={0}
       onKeyDown={onKeyDown}
@@ -93,13 +132,13 @@ export function SolutionsShowcase() {
 
         <div className="solutions-dial" aria-label="Escolha uma solução">
           <div className="solutions-dial-ring" aria-hidden="true" />
-          {solutions.map((item, index) => (
+          <div className="solutions-dial-items">{solutions.map((item, index) => (
             <Button
               key={item.number}
               type="button"
               variant="ghost"
               className={`solutions-dial-item solutions-dial-item-${index + 1} ${index === active ? "is-active" : ""}`}
-              onClick={() => setActive(index)}
+              onClick={() => goTo(index)}
               aria-label={`${item.number} — ${item.title}`}
               aria-current={index === active ? "step" : undefined}
               title={item.title}
@@ -107,7 +146,7 @@ export function SolutionsShowcase() {
               <span className="solutions-dial-dot" aria-hidden="true" />
               <span>{item.number}</span>
             </Button>
-          ))}
+          ))}</div>
           <span className="solutions-dial-index" aria-hidden="true">0{active + 1}<span>/04</span></span>
         </div>
 
