@@ -140,11 +140,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .solutions-inner { position: sticky; top: 0; height: 100svh; min-height: 680px; padding-top: 64px; padding-bottom: 52px; }
 .solutions-heading { position: relative; z-index: 2; margin-left: 30%; }
 .solutions-dial { position: absolute; left: -430px; top: -25px; width: 780px; height: 780px; }
-.solutions-dial-ring { position: absolute; inset: 0; border: 1px solid color-mix(in oklab, var(--primary) 20%, var(--border)); border-radius: 50%; box-shadow: inset 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent), 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent); transform: rotate(calc(var(--active-index) * -22deg)); transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.solutions-dial-ring { position: absolute; inset: 0; border: 1px solid color-mix(in oklab, var(--primary) 20%, var(--border)); border-radius: 50%; box-shadow: inset 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent), 0 0 80px color-mix(in oklab, var(--primary) 3%, transparent); transform: rotate(calc(var(--dial-progress, 0) * -22deg)); }
 .solutions-dial-ring::before { content: ""; position: absolute; right: 12%; top: 17%; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 26px var(--primary); }
 .solutions-dial-ring::after { content: ""; position: absolute; inset: 64px; border: 1px solid color-mix(in oklab, var(--foreground) 5%, transparent); border-radius: 50%; }
-.solutions-dial-items { position: absolute; inset: 0; transform: rotate(calc(var(--active-index) * -22deg)); transition: transform .65s cubic-bezier(.2,.7,.2,1); }
-.solutions-dial-item > span { transform: rotate(calc(var(--active-index) * 22deg)); transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.solutions-dial-items { position: absolute; inset: 0; transform: rotate(calc(var(--dial-progress, 0) * -22deg)); }
+.solutions-dial-item > span { transform: rotate(calc(var(--dial-progress, 0) * 22deg)); }
 .solutions-dial-item { position: absolute; z-index: 3; width: 95px; height: 54px; padding: 0; justify-content: flex-start; gap: 13px; border-radius: 0; color: var(--muted-foreground); font-family: "Sora", sans-serif; font-size: 23px; font-weight: 400; transition: color .35s ease, transform .35s ease; }
 .solutions-dial-item:hover { background: transparent; color: var(--foreground); }
 .solutions-dial-item.is-active { color: var(--foreground); translate: 8px 0; }
