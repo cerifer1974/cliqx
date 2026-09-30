@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type TouchEvent, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type TouchEvent, type KeyboardEvent } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Bot, Compass, Monitor, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,7 @@ export function SolutionsShowcase() {
         const distance = section.offsetHeight - window.innerHeight;
         if (distance <= 0) return;
         const progress = Math.max(0, Math.min(1, -section.getBoundingClientRect().top / distance));
+        section.style.setProperty("--dial-progress", String(progress * (solutions.length - 1)));
         setActive(Math.min(solutions.length - 1, Math.floor(progress * solutions.length)));
       });
     };
@@ -113,7 +114,6 @@ export function SolutionsShowcase() {
       ref={sectionRef}
       id="solucoes"
       className="solutions-section relative z-10 overflow-clip border-y border-border"
-      style={{ "--active-index": active } as CSSProperties}
       aria-label="Soluções Cliqx"
       tabIndex={0}
       onKeyDown={onKeyDown}
