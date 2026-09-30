@@ -11,3 +11,4 @@
 
 - Serve the uploaded Cliqx opening video and its poster through Lovable Assets pointers, not repository binaries, to keep media delivery lightweight.
 - Keep the solutions dial in a client-side component with local state; its editorial transitions and touch navigation do not require persistence.
+- Drive the solutions dial from the scroll position of its tall section and keep its content in a sticky viewport panel; this lets scrolling, touch, and direct selection share one active step without persistence.
