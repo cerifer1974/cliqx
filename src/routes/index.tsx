@@ -9,6 +9,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { SolutionsShowcase } from "@/components/SolutionsShowcase";
+import { ConceptSection } from "@/components/ConceptSection";
 import logoAsset from "@/assets/cliqx-logo.jpeg.asset.json";
 import markAsset from "@/assets/cliqx-mark.jpeg.asset.json";
 import casaSpaAsset from "@/assets/casaspa-showcase.png.asset.json";
@@ -211,28 +212,7 @@ function Index() {
 
       <SolutionsShowcase />
 
-      <section id="conceito" className="relative z-10 border-y border-border bg-secondary/50">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 py-32 md:px-10 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-6">
-            <p className="eyebrow">Projeto Conceito Cliqx</p>
-            <h2 className="mt-6 max-w-[14ch] font-display text-4xl font-medium leading-tight md:text-6xl">E se você pudesse enxergar o potencial do seu negócio antes de decidir?</h2>
-            <p className="mt-7 max-w-lg leading-7 text-muted-foreground">Seletivo por natureza: alguns negócios recebem, de cada vez, uma visão inicial de como a sua presença digital poderia ser transformada.</p>
-            <Button asChild size="lg" className="mt-9 h-12 rounded-full px-6"><a href="#contato">Candidatar meu negócio <ArrowRight /></a></Button>
-            <p className="mt-5 max-w-lg text-xs leading-5 text-muted-foreground">Projetos-conceito são selecionados pela Cliqx conforme disponibilidade e potencial de cada negócio.</p>
-          </div>
-          <div className="space-y-3 lg:col-span-5 lg:col-start-8">
-            {[
-              "Encontramos negócios com potencial.",
-              "Estudamos sua identidade e presença atual.",
-              "Criamos uma visão digital para o negócio.",
-              "Apresentamos o conceito.",
-              "Você decide se quer transformá-lo em realidade.",
-            ].map((step, index) => (
-              <div className="concept-step" key={step}><span>{String(index + 1).padStart(2, "0")}</span><p>{step}</p></div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ConceptSection />
 
       <section id="metodo" className="relative z-10 mx-auto max-w-7xl px-5 py-32 md:px-10 lg:px-8">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">05 — Método</p><h2 className="mt-5 font-display text-4xl font-medium md:text-6xl">Você fala conosco.<br /><span className="text-primary">Nós fazemos o resto.</span></h2></div><p className="max-w-sm text-sm leading-6 text-muted-foreground">Tecnologia nos bastidores. Experiência na frente.</p></div>
