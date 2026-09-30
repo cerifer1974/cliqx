@@ -186,8 +186,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .solutions-title { font-size: 48px; }
 }
 .concept-step { display: grid; grid-template-columns: 3rem 1fr; align-items: center; gap: 1rem; border: 1px solid var(--border); border-radius: .75rem; background: color-mix(in oklab, var(--background) 55%, transparent); padding: 1.25rem; }
+.concept-step[data-visible="false"] { opacity: 0; transform: translateY(22px); }
+.concept-step[data-visible="true"] { opacity: 1; transform: translateY(0); }
+.concept-step { transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
 .concept-step span { font-family: "Sora", sans-serif; color: var(--accent); }
 .concept-step p { margin: 0; font-size: .9rem; color: var(--foreground); }
+@media (min-width: 1024px) and (min-height: 800px) {
+  .concept-section { height: 240svh; }
+  .concept-inner { position: sticky; top: 0; height: 100svh; align-items: center; padding-top: 3rem; padding-bottom: 3rem; }
+}
 .process-cell { min-height: 17rem; transition: background-color .3s ease; }
 .process-cell:hover { background: var(--secondary); }
 
@@ -235,5 +242,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .hero-video { display: none; }
   .solutions-copy, .solutions-visual { animation: none; }
   .solutions-dial-item, .solutions-dial-dot, .solutions-dial-items, .solutions-dial-ring, .solutions-dial-item > span, .solutions-visual-object { transition: none; }
+  .concept-step[data-visible="false"] { opacity: 1; transform: none; }
   * { transition-duration: 0.01ms !important; }
 }
