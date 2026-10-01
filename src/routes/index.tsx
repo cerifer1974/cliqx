@@ -152,22 +152,24 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 py-28 md:px-10 lg:px-8">
           <p className="eyebrow">01 — O choque de percepção</p>
           <h2 className="mt-6 max-w-4xl font-display text-4xl font-medium leading-tight md:text-6xl">Antes de conhecer sua empresa, seu cliente conhece sua presença digital.</h2>
-          <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-[1fr_auto_1fr]">
-            <div className="bg-background p-7 md:p-10">
-              <span className="text-xs uppercase tracking-[0.22em] text-primary">O negócio</span>
-              <div className="mt-7 flex gap-1 text-primary" aria-label="Cinco estrelas">★★★★★</div>
-              <ul className="mt-7 space-y-4 text-lg">
-                {["Experiência incrível", "Produto excelente", "Atendimento impecável", "Estrutura premium"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="size-4 text-primary" />{item}</li>)}
-              </ul>
-            </div>
-            <div className="flex min-h-32 items-center justify-center bg-secondary px-7 py-10 text-center md:w-64">
-              <p className="font-display text-xl leading-snug">Existe uma diferença entre <span className="text-primary">ser bom</span> e <span className="text-accent">parecer bom.</span></p>
-            </div>
-            <div className="bg-background p-7 md:p-10">
-              <span className="text-xs uppercase tracking-[0.22em] text-accent">A percepção digital</span>
-              <ul className="mt-7 space-y-4 text-lg text-muted-foreground">
-                {["Site antigo", "Google abandonado", "Informações difíceis", "Design genérico", "Contato complicado"].map((item) => <li key={item}>{item}</li>)}
-              </ul>
+          <div className="perception-card mt-16">
+            <div className="perception-card-inner grid gap-px overflow-hidden rounded-lg bg-border md:grid-cols-[1fr_auto_1fr]">
+              <div className="bg-background p-7 md:p-10">
+                <span className="text-xs uppercase tracking-[0.22em] text-primary">O negócio</span>
+                <div className="mt-7 flex gap-1 text-primary" aria-label="Cinco estrelas">★★★★★</div>
+                <ul className="mt-7 space-y-4 text-lg">
+                  {["Experiência incrível", "Produto excelente", "Atendimento impecável", "Estrutura premium"].map((item) => <li key={item} className="flex items-center gap-3"><Check className="size-4 text-primary" />{item}</li>)}
+                </ul>
+              </div>
+              <div className="flex min-h-32 items-center justify-center bg-secondary px-7 py-10 text-center md:w-64">
+                <p className="font-display text-xl leading-snug">Existe uma diferença entre <span className="text-primary">ser bom</span> e <span className="text-accent">parecer bom.</span></p>
+              </div>
+              <div className="bg-background p-7 md:p-10">
+                <span className="text-xs uppercase tracking-[0.22em] text-accent">A percepção digital</span>
+                <ul className="mt-7 space-y-4 text-lg text-muted-foreground">
+                  {["Site antigo", "Google abandonado", "Informações difíceis", "Design genérico", "Contato complicado"].map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
