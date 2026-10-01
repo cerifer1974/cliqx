@@ -91,30 +91,31 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .perception-card {
   position: relative;
   isolation: isolate;
-  border-radius: calc(var(--radius) + 1px);
+  overflow: hidden;
+  padding: 4px;
+  border-radius: calc(var(--radius) + 4px);
   transition: transform .6s cubic-bezier(.2,.8,.2,1);
 }
 .perception-card::before,
 .perception-card::after {
   content: "";
   position: absolute;
-  inset: -1px;
-  z-index: -1;
-  border-radius: inherit;
+  inset: -100%;
+  z-index: 0;
   pointer-events: none;
-  background: conic-gradient(from var(--perception-angle, 0deg), var(--primary), transparent 24%, var(--accent) 52%, transparent 76%, var(--primary));
-  animation: perception-border 9s linear infinite;
+  background: conic-gradient(from 0deg, transparent 0 18%, var(--primary) 29% 42%, transparent 53% 68%, var(--accent) 79% 92%, transparent 100%);
+  transform: rotate(0deg);
 }
 .perception-card::after {
-  inset: 2%;
-  filter: blur(28px);
-  opacity: .16;
-  transform: translateY(10px) scale(.98);
-  transition: opacity .6s ease, filter .6s ease, transform .6s ease;
+  filter: blur(32px);
+  opacity: .2;
+  transition: opacity .6s ease, filter .6s ease;
 }
-.perception-card-inner { position: relative; z-index: 1; border: 1px solid transparent; }
+.perception-card-inner { position: relative; z-index: 1; border-radius: calc(var(--radius) - 1px); }
 .perception-card:hover { transform: translateY(-3px); }
-.perception-card:hover::after { opacity: .34; filter: blur(38px); transform: translateY(15px) scale(1.01); }
+.perception-card:hover::before,
+.perception-card:hover::after { animation: perception-border 3.8s linear infinite; }
+.perception-card:hover::after { opacity: .42; filter: blur(44px); }
 .hero-console { animation: float 9s ease-in-out infinite; }
 .hero-previews { perspective: 1200px; }
 .project-fan { display: flex; align-items: center; justify-content: center; }
@@ -228,13 +229,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes drift { 0%, 100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-18px,0); } }
 @keyframes slide { from { transform: translateX(-5vw); opacity: .25; } to { transform: translateX(5vw); opacity: .7; } }
 @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-@keyframes perception-border { to { --perception-angle: 360deg; } }
-
-@property --perception-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
+@keyframes perception-border { to { transform: rotate(360deg); } }
 
 @media (max-width: 767px) {
   .hero-section { min-height: min(31rem, 68svh); }
