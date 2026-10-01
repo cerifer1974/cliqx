@@ -28,44 +28,35 @@ export function ConceptSection() {
 
     setAnimated(true);
     let frame = 0;
-    let observer: IntersectionObserver | undefined;
 
     function syncScroll() {
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         if (!section) return;
-        const distance = section.offsetHeight - window.innerHeight;
-        const progress = distance > 0 ? Math.max(0, Math.min(1, -section.getBoundingClientRect().top / distance)) : 0;
-        setVisibleCount(Math.min(steps.length, 1 + Math.floor(progress * steps.length)));
+        if (stickyLayout.matches) {
+          const distance = section.offsetHeight - window.innerHeight;
+          const progress = distance > 0 ? Math.max(0, Math.min(1, -section.getBoundingClientRect().top / distance)) : 0;
+          setVisibleCount(Math.min(steps.length, 1 + Math.floor(progress * steps.length)));
+          return;
+        }
+
+        const revealLine = window.innerHeight * 0.82;
+        const items = Array.from(section.querySelectorAll<HTMLElement>("[data-step-index]"));
+        const revealed = items.filter((item) => item.getBoundingClientRect().top <= revealLine).length;
+        setVisibleCount(Math.max(1, revealed));
       });
     }
 
     function configure() {
-      observer?.disconnect();
       window.removeEventListener("scroll", syncScroll);
-      if (stickyLayout.matches) {
-        syncScroll();
-        window.addEventListener("scroll", syncScroll, { passive: true });
-      } else {
-        setVisibleCount(1);
-        observer = new IntersectionObserver((entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              const index = Number((entry.target as HTMLElement).dataset.stepIndex);
-              setVisibleCount((count) => Math.max(count, index + 1));
-              observer?.unobserve(entry.target);
-            }
-          }
-        }, { threshold: 0.35, rootMargin: "0px 0px -8% 0px" });
-        section.querySelectorAll<HTMLElement>("[data-step-index]").forEach((item) => observer?.observe(item));
-      }
+      syncScroll();
+      window.addEventListener("scroll", syncScroll, { passive: true });
     }
 
     configure();
     stickyLayout.addEventListener("change", configure);
     window.addEventListener("resize", syncScroll);
     return () => {
-      observer?.disconnect();
       stickyLayout.removeEventListener("change", configure);
       window.removeEventListener("scroll", syncScroll);
       window.removeEventListener("resize", syncScroll);

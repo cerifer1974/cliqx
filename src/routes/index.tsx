@@ -232,7 +232,7 @@ function Index() {
           <Button asChild size="lg" className="mt-10 h-12 rounded-full px-6"><a href="#conceito">Conte seu projeto <ArrowRight /></a></Button>
         </div>
         <div className="mx-auto flex max-w-7xl flex-col gap-7 border-t border-border px-5 py-8 md:flex-row md:items-center md:justify-between md:px-10 lg:px-8">
-          <img src={logoAsset.url} alt="Cliqx" className="h-14 w-20 rounded object-cover object-center" />
+          <img src={logoAsset.url} alt="Cliqx" className="h-12 w-28 object-contain object-left" />
           <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Presença digital que valoriza negócios.</p>
           <div className="flex gap-6 text-sm text-muted-foreground"><a className="nav-link" href="#conceito">Projeto Conceito</a><a className="nav-link" href="#top">Voltar ao topo ↑</a></div>
         </div>
