@@ -1,3 +1,4 @@
+import { ProcessCards } from "@/components/ProcessCards";
 import type { CSSProperties } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
