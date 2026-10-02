@@ -1,3 +1,4 @@
+import { ProcessCards } from "@/components/ProcessCards";
 import type { CSSProperties } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -218,9 +219,7 @@ function Index() {
 
       <section id="metodo" className="relative z-10 mx-auto max-w-7xl px-5 py-32 md:px-10 lg:px-8">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="eyebrow">05 — Método</p><h2 className="mt-5 font-display text-4xl font-medium md:text-6xl">Você fala conosco.<br /><span className="text-primary">Nós fazemos o resto.</span></h2></div><p className="max-w-sm text-sm leading-6 text-muted-foreground">Tecnologia nos bastidores. Experiência na frente.</p></div>
-        <div className="mt-16 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-          {process.map(([number, title, text]) => <div key={number} className="process-cell bg-background p-7"><span className="font-display text-sm text-accent">{number}</span><h3 className="mt-16 font-display text-xl">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p></div>)}
-        </div>
+        <ProcessCards steps={process as unknown as readonly (readonly [string, string, string])[]} />
         <div className="mt-16 grid items-center gap-8 border-t border-border pt-10 md:grid-cols-2">
           <p className="font-display text-2xl">Inteligência artificial acelera o processo.<br /><span className="text-muted-foreground">Nunca apaga a personalidade.</span></p>
           <p className="text-sm leading-7 text-muted-foreground">Ferramentas modernas aceleram pesquisa, criação, desenvolvimento e automação — sem diluir o que torna o seu negócio único.</p>
