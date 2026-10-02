@@ -9,7 +9,7 @@ function ProcessCard({ step, index }: { step: Step; index: number }) {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); io.disconnect(); } },
+      ([entry]) => { if (entry?.isIntersecting) { setVisible(true); io.disconnect(); } },
       { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(el);
